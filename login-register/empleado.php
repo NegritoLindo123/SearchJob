@@ -16,5 +16,6 @@
 <body>
     <h1>Bienvenido Empleado</h1>
     <a href="logout.php">Cerrar Sesion</a>
+    <a href="empleos.php">empleos</a>
 </body>
 </html>
