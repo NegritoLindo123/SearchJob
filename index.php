@@ -1,5 +1,11 @@
-<?php include "helpers.php"; ?>
-<?php include "login-register/conexion.php"; ?>
+<?php 
+    //SE INCLUYE LA LIBRERIA DE FUNCIONES 
+    include "helpers.php"; 
+?>
+<?php 
+    //SE INCLUYE LA CONEXIÓN A LA BASE DE DATOS
+    include "login-register/conexion.php";
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,8 +39,11 @@
                     <select name="id" id="">
                         <option value="ninguno">Todos</option>
                         <?php 
+                            //LLAMADA A LA FUNCION PARA MOSTRAR LOS MUNICIPIOS
                             $resultados = conseguirMunicipios($conexion);
+                            //VALIDAR QUE LA VARIABLE TENGA DATOS
                             if(!empty($resultados)):
+                                //CICLO PARA IMPRIMIR LOS RESULTADOS
                                 while($resultado = mysqli_fetch_assoc($resultados)):
                         ?>
                         

@@ -26,16 +26,10 @@
 
     }
 
-    function conseguirMunicipios($conexion, $municipio = null, $nombre = null){
+    function conseguirMunicipios($conexion){
 
-        $sql = "SELECT * FROM municipio ";
+        $sql = "SELECT * FROM municipio ORDER BY nombre ASC";
         $consulta = mysqli_query($conexion,$sql);
-
-        if(!empty($municipio)){
-            $sql .= "WHERE municipio = '$municipio' and nombre like '%$nombre%'";
-        }
-
-        $sql .=  " ORDER BY nombre ASC";
 
         $resultado = array();
 

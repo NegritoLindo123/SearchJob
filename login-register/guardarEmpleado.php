@@ -104,7 +104,7 @@ if(isset($_POST)){
                 $resultado = mysqli_query($conexion, $insertarSQL);
                 //SI LA CONSULTA ES TRUE:
                 if($resultado){
-                    echo"<script>alert('Se ha cargado la información con éxito'); window.location = 'login.html'</script>";
+                    echo"<script>alert('Se ha cargado la información con éxito'); window.location = 'login.php'</script>";
                 }
                 //SI LA CONSULTA NO SE EJECUTA
                 else{

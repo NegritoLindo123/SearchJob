@@ -1,7 +1,9 @@
 <?php
 
+//SE VALIDA QUE HALLA UN METODO POST
 if(isset($_POST)){
 
+    //SE INCLUYE LA CONEXIÓN
     include "conexion.php";
 
     $nit = isset($_POST['nit']) ? mysqli_real_escape_string($conexion,$_POST['nit']) : false;
@@ -70,9 +72,12 @@ if(isset($_POST)){
     //VALIDACION DE QUE NO HAYAN ERRORES
     if(count($errores)==0){
 
+        //CONSULTA QUE SE VA EJECUTAR
         $insertarSQL = "INSERT INTO usuario (id, nombre, apellido, telefono, direccion, correo, contrasena, perfil, hoja_vida) 
                     VALUES('$nit', '$nombre', null, '$telefono', '$direccion', '$email', '$contrasena', '$perfil', null)";
+        //FUNCIÓN PARA EJECUTAR LA CONSULTA
         $resultado = mysqli_query($conexion, $insertarSQL);
+        //VALIDAR QUE LA CONSULTA FUNCIONES
         if($resultado){
             echo"<script>alert('Se ha cargado la información con éxito'); window.location = 'login.html'</script>";
         }else{
@@ -81,6 +86,7 @@ if(isset($_POST)){
 
     }else{
 
+        //SE CREA UNA SESION ERRORES PARA MOSTRAR LOS ERRORES QUE SE DETECTARON
         $_SESSION['errores'] = $errores;
         header("Location: registerEmpresa.php");
 

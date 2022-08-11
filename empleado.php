@@ -1,3 +1,11 @@
+<?php
+
+    require_once "login-register/conexion.php";
+    if(!isset($_SESSION['usuario'])){
+        header('Location: login-register/login.php');
+    } 
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,38 +15,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Mouse+Memoirs&family=Roboto&family=Source+Code+Pro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="icons/style.css">
+    <link rel="stylesheet" href="assets/icons/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <title>Postúlate al empleo</title>
-</head>
-<body>
-    <div class="caja">
-        <div class="caja-izquierda">
-            <div class="caja-izquierda-uno">
-                <h1>SearchJob</h1>
-                <img src="img/vladimiruwu.jpg" alt="">
-                <h2>Vladimir Vladimirovich Putazos</h2>
-            </div>
-            <div class="caja-izquierda-dos">
-                <div class="caja-izquierda-dos-a"> 
-                    <a href="#">Mis Postulaciones <span class="icon-folder"></span></a> 
-                    <a href="#">Empleos Disponibles <span class="icon-clipboard"></span></a>
-                </div>
-                <div class="caja-izquierda-dos-aa">
-                    <a href="#">Datos Personales <span class="icon-address-book"></span></a>   
-                    <a href="#">Cerrar Sesión <span class="icon-exit"></span></a>   
-                </div>    
-            </div>
-        </div>
-        <div class="caja-derecha">
-            <div class="caja-derecha-details">
-                <h1>Bienvenido Vladimir Putazos</h1>
-                <p>En esta sesión podrás encontrar varias funcionalidades que te harán los procesos mucho mas cortos y cómodos, navega y esperamos
-                    que sea de tu gusto</p>
-            </div>
-        </div>
-    </div>
     <style>
+        :root{
+            --primario: rgb(105, 183, 185);
+            --secundario: #f5f2f2;
+            --gris: #B8B8B8;
+            --blanco: #FFFFFF;
+            --negro: #000000;
+
+            --FuentePpal: 'Dancing Script', cursive;
+        }
         .caja{
             display: flex;
             flex-direction: row;
@@ -128,6 +117,34 @@
             margin: 2rem;
         }
     </style>
+</head>
+<body>
+    <div class="caja">
+        <div class="caja-izquierda">
+            <div class="caja-izquierda-uno">
+                <h1>SearchJob</h1>
+                <img src="assets/img/putin.jpg" alt="">
+                <h2><?=$_SESSION['usuario']['nombre'] ?></h2>
+            </div>
+            <div class="caja-izquierda-dos">
+                <div class="caja-izquierda-dos-a"> 
+                    <a href="#">Mis Postulaciones <span class="icon-folder"></span></a> 
+                    <a href="#">Empleos Disponibles <span class="icon-clipboard"></span></a>
+                </div>
+                <div class="caja-izquierda-dos-aa">
+                    <a href="#">Datos Personales <span class="icon-address-book"></span></a>   
+                    <a href="login-register/logout.php">Cerrar Sesión <span class="icon-exit"></span></a>   
+                </div>    
+            </div>
+        </div>
+        <div class="caja-derecha">
+            <div class="caja-derecha-details">
+                <h1>Bienvenido <?=$_SESSION['usuario']['nombre'] ?></h1>
+                <p>En esta sesión podrás encontrar varias funcionalidades que te harán los procesos mucho mas cortos y cómodos, navega y esperamos
+                    que sea de tu gusto</p>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
