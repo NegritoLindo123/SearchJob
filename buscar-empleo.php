@@ -17,7 +17,8 @@
 <body>
     <h1>Resultado de la busqueda: <?=$_POST['nombre'] ?></h1>
     <?php 
-        $empleos = conseguirempleo($conexion, $_POST['nombre'], $_POST['id']);
+    var_dump($_POST['id']);
+        $empleos = conseguirEmpleo($conexion, $_POST['nombre'], $_POST['id']);
         if(!empty($empleos) && mysqli_num_rows($empleos) >= 1):
             while($empleo = mysqli_fetch_assoc($empleos)):
     ?> 
