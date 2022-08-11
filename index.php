@@ -12,11 +12,6 @@
     <link rel="stylesheet" href="assets/icons/style.css">
     <link rel="stylesheet" href="css/estilos.css">
     <title>Inicio - SearchJob</title>
-    <style>
-
-        
-
-    </style>
 </head>
 <body>
     <!------------------------HEADER------------------------>
@@ -33,9 +28,9 @@
                 <h2>SearchJob</h2>
                 <p>Estamos aquí para ayudarte a encontrar el trabajo ideal para tí <br>
                 Registrate en nuestra pagina y empieza a navegar entre los tantos empleos disponibles.</p>
-                <form action="">
-                    <input type="text" placeholder="Busqueda manuál">
-                    <select name="" id="">
+                <form action="buscar-empleo.php" method="post">
+                    <input type="text" placeholder="Busqueda manuál" name="nombre">
+                    <select name="id" id="">
                         <?php 
                             $resultados = conseguirMunicipios($conexion);
                             if(!empty($resultados)):
@@ -53,6 +48,7 @@
 
                         ?>
                     </select>
+                    <input type="submit" value="Enviar">
                 </form>
             </div>
         </section>

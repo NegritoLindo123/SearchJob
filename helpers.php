@@ -26,10 +26,16 @@
 
     }
 
-    function conseguirMunicipios($conexion){
+    function conseguirMunicipios($conexion, $municipio = null, $nombre = null){
 
-        $sql = "SELECT * FROM municipio ORDER BY nombre ASC";
+        $sql = "SELECT * FROM municipio ";
         $consulta = mysqli_query($conexion,$sql);
+
+        if(!empty($municipio)){
+            $sql .= "WHERE municipio = '$municipio' and nombre like '%$nombre%'";
+        }
+
+        $sql .=  " ORDER BY nombre ASC";
 
         $resultado = array();
 
@@ -43,21 +49,48 @@
 
     }
 
-    function conseguirEmpleos($conexion){
+    function conseguirEmpleo($conexion,$nombre = null,$municipio = null){
 
-        $sql = "SELECT em.*, mu.nombre, ca.nombre, se.nombre, tc.nombre FROM empleo as em ".
-        " INNER JOIN municipio as mu ON em.municipio = mu.codigo ".
-        " INNER JOIN cargo as ca ON em.cargo = ca.codigo ".
-        " INNER JOIN sector as se ON em.sector = se.codigo ".
-        " INNER JOIN tipo_contrato as tc ON em.tipo_contrato = tc.codigo";
-        $empleos = mysqli_query($conexion,$sql);
+        $sql = "SELECT * FROM empleo ";
+        
+        if(!empty($nombre) && !empty($municipio)){
+            $sql .= "WHERE nombre LIKE '%$nombre%' and municipio='$municipio' ";
+        }
+        if(!empty($nombre) && empty($municipio)){
+            $sql .= "WHERE nombre LIKE '%$nombre%' ";
+        }
+        if(empty($nombre) && !empty($municipio)){
+            $sql .= "WHERE municipio='$municipio' ";
+        }
+
+        $consulta = mysqli_query($conexion,$sql);
+
+        $resultado = array();
+        if($consulta && mysqli_num_rows($consulta) >= 1){
+            $resultado = $consulta;
+        }
+
+        return $resultado;
+
+    }
+
+    function conseguirEmpleos($conexion,$id){
+
+        $sql = " SELECT em.*, mu.nombre as 'nombre_mu', ca.nombre, se.nombre, tc.nombre as 'nombre_tc' ".
+        " FROM empleo as em INNER JOIN municipio as mu ".
+        " ON em.municipio = mu.codigo ".
+        " INNER JOIN cargo as ca ".
+        " ON em.cargo = ca.codigo ".
+        " INNER JOIN sector as se ".
+        " ON em.sector = se.codigo ".
+        " INNER JOIN tipo_contrato as tc ".
+        " ON em.tipo_contrato = tc.codigo ";
+        $empleo = mysqli_query($conexion,$sql);
 
         $resultado = array();
 
-        if($empleos && mysqli_num_rows($empleos)){
-
-            $resultado = mysqli_fetch_assoc($empleos);
-
+        if($empleo && mysqli_num_rows($empleo) >= 1){
+            $resultado = mysqli_fetch_assoc($empleo);
         }
 
         return $resultado;

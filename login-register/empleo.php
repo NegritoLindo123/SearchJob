@@ -42,16 +42,7 @@
 </head>
 <body>
     
-    <?php 
-
-        $resultados = conseguirEmpleos($conexion);
-        if(!empty($resultados)){
-
-            
-
-        }
-
-    ?>
+    
 
     <!-- <div class="container">
         <div class="seccion1">
