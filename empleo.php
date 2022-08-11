@@ -19,6 +19,6 @@
 <body>
     <h1><?=$empleo_actual['nombre_tc'] ?></h1>
     <h1><?=$empleo_actual['nombre_mu'] ?></h1>
-
+    <a href="empleos.php">empleos</a>
 </body>
 </html>
