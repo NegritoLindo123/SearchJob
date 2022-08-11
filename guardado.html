@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Mouse+Memoirs&family=Roboto&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <title>Guardado con Éxito</title>
+</head>
+<body>        
+    <div class="container-two">
+        <div class="container-two-details">
+            <div class="container-two-details-content">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-rain" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7" />
+                    <path d="M11 13v2m0 3v2m4 -5v2m0 3v2" />
+                  </svg>
+                <h1>Los datos se han guardado con éxito.</h1>
+            </div>
+        </div>
+
+        <div class="container-two-button">
+            <a href="errordatos.html">Volver a Intentar</a>
+        </div>
+    </div>
+    <style>
+        .container-two{
+            background-image: url(../img/update.jpg);
+            height: 100vh;
+            background-size: cover;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            justify-items: center;
+            padding-top: 3rem;
+        }
+        .container-two-details{
+            background-color: rgb(105, 183, 185);
+            width: 35rem;
+            height: 26rem;
+            border-radius: 5%;
+            -webkit-box-shadow: 6px 8px 5px 0px rgba(49,71,71,1);
+            -moz-box-shadow: 6px 8px 5px 0px rgba(49,71,71,1);
+            -ms-box-shadow: 6px 8px 5px 0px rgba(49,71,71,1);
+            box-shadow: 6px 8px 5px 0px rgba(49,71,71,1);
+        }
+
+        .container-two-details-content{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: auto;
+            padding: 3.6rem;
+        }
+        .container-two-details-content svg{
+            height: 12rem;
+            width: 12rem;
+        }
+        .container-two-details-content h1{
+            color: #ffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .container-two .container-two-button{
+            margin-top: 3rem;
+            width: 250px;
+            height: 40px;
+            background-color: rgb(184, 183, 183);
+            border-radius: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container-two .container-two-button a{
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: medium;
+        }
+    </style>
+</body>
+</html>

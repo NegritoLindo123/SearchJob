@@ -31,6 +31,7 @@
                 <form action="buscar-empleo.php" method="post">
                     <input type="text" placeholder="Busqueda manuál" name="nombre">
                     <select name="id" id="">
+                        <option value="ninguno">Todos</option>
                         <?php 
                             $resultados = conseguirMunicipios($conexion);
                             if(!empty($resultados)):
