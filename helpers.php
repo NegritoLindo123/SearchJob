@@ -53,15 +53,18 @@
 
         $sql = "SELECT * FROM empleo ";
         
-        if(!empty($nombre) && !empty($municipio)){
+        if(!empty($nombre) && !empty($municipio) && $municipio != "ninguno"){
             $sql .= "WHERE nombre LIKE '%$nombre%' and municipio='$municipio' ";
         }
-        if(!empty($nombre) && empty($municipio)){
+        if(!empty($nombre) && $municipio == "ninguno"){
             $sql .= "WHERE nombre LIKE '%$nombre%' ";
         }
-        if(empty($nombre) && !empty($municipio)){
-            $sql .= "WHERE municipio='$municipio' ";
+        if(empty($nombre) && $municipio == "ninguno"){
+            $sql .= " ";
         }
+        if(empty($nombre) && !empty($municipio) &&  $municipio != "ninguno"){
+            $sql .= "WHERE municipio='$municipio' ";
+        }   
 
         $consulta = mysqli_query($conexion,$sql);
 
